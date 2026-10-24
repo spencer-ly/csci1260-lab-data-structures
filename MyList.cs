@@ -16,14 +16,20 @@ public class MyList<T>
     }
 
     // TODO: Part B. How many slots are in use.
-    public int Count => throw new NotImplementedException();
+    public int Count => count;
 
     // TODO: Part B. How many slots exist (the array's Length).
-    public int Capacity => throw new NotImplementedException();
+    public int Capacity => items.Length;
 
     // Add to the end. Grow first if every slot is taken.
     public void Add(T item)
     {
+        if (count == items.Length)
+        {
+            Grow();
+        }
+        items[count++] = item;
+        count++;
         // TODO: Part B, demo
         throw new NotImplementedException();
     }
@@ -34,11 +40,15 @@ public class MyList<T>
     {
         get
         {
+            CheckIndex(index);
+            return items[index];
             // TODO: Part B, demo
             throw new NotImplementedException();
         }
         set
         {
+            CheckIndex(index);
+            items[index] = value;
             // TODO: Part B, demo
             throw new NotImplementedException();
         }
@@ -49,6 +59,20 @@ public class MyList<T>
     // for anything else.
     public void Insert(int index, T item)
     {
+        if (index < 0 || index > count)
+        {
+            throw new ArgumentOutOfRangeException(nameof(index));
+        }
+        if (count == items.Length)
+        {
+            Grow();
+        }
+        for (int i = count; i > index; i--)
+        {
+            items[i] = items[i - 1];
+        }
+        items[index] = item;
+        count++;
         // TODO: Part B, Exercise 2
         throw new NotImplementedException();
     }
@@ -56,6 +80,12 @@ public class MyList<T>
     // Remove the item at index and close the gap.
     public void RemoveAt(int index)
     {
+        CheckIndex(index);
+        for (int i = index; i < count - 1; i++)
+        {
+            items[i] = items[i + 1];
+        }
+        count--;
         // TODO: Part B, demo
         throw new NotImplementedException();
     }
@@ -64,6 +94,14 @@ public class MyList<T>
     // Compare with Equals(a, b), which works for every type T.
     public int IndexOf(T item)
     {
+        for (int i = 0; i < count; i++)
+        {
+            if (Equals(items[i], item))
+            {
+                return i;
+            }
+        }
+        return -1;
         // TODO: Part B, demo
         throw new NotImplementedException();
     }
@@ -82,6 +120,25 @@ public class MyList<T>
         }
         return result + "]";
     }
+
+    private void Grow()
+    {
+        T[] bigger = new T[items.Length *2];
+        for (int i = 0; i < count; i++)
+        {
+            bigger[i] = items[i];
+        }
+        items = bigger;
+    }
+
+    private void CheckIndex(int index)
+    {
+        if (index < 0 || index >= count)
+        {
+            throw new ArgumentOutOfRangeException(nameof(index));
+        }
+    }
+    
 
     // TODO: Part B. Write two private helpers:
     //   Grow()            make a new array twice the size, copy every item

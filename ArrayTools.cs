@@ -10,7 +10,7 @@ public static class ArrayTools
     // Return the index, or -1 when the target is not there.
     public static int IndexOf(int[] data, int count, int target)
     {
-        for (int i = 0; i<count; i++)
+        for (int i = 0; i < count; i++)
         {
             if (data[i] == target)
             {
@@ -21,7 +21,7 @@ public static class ArrayTools
         // TODO: Part A, demo
         throw new NotImplementedException();
     }
-
+    
     // Insert: shift right starting from the END, then drop the value
     // into the gap. Return the new count.
     public static int InsertAt(int[] data, int count, int index, int value)
