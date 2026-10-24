@@ -10,6 +10,14 @@ public static class ArrayTools
     // Return the index, or -1 when the target is not there.
     public static int IndexOf(int[] data, int count, int target)
     {
+        for (int i = 0; i<count; i++)
+        {
+            if (data[i] == target)
+            {
+                return i;
+            }
+            return -1;
+        }
         // TODO: Part A, demo
         throw new NotImplementedException();
     }
@@ -18,6 +26,12 @@ public static class ArrayTools
     // into the gap. Return the new count.
     public static int InsertAt(int[] data, int count, int index, int value)
     {
+        for (int i = count; i > index; i--)
+        {
+            data[i] = data[i - 1];
+        }
+        data[index] = value;
+        return count + 1;
         // TODO: Part A, demo
         throw new NotImplementedException();
     }
@@ -26,6 +40,11 @@ public static class ArrayTools
     // in use, so the count drops by one. Return the new count.
     public static int RemoveAt(int[] data, int count, int index)
     {
+        for (int i = index; i < count - 1; i++)
+        {
+            data[i] = data[i + 1];
+        }
+        return count - 1;
         // TODO: Part A, Exercise 1
         throw new NotImplementedException();
     }
