@@ -11,7 +11,7 @@ public static class CourseQueries
             .Select(c => c.Code)
             .ToList();
         // TODO: Part G, demo. Where, then Select, then ToList.
-        //throw new NotImplementedException();
+        throw new NotImplementedException();
     }
 
     // Part G, demo: the titles of the four credit courses.
@@ -21,7 +21,7 @@ public static class CourseQueries
             .Select(c => c.Title)
             .ToList();
         // TODO: Part G, demo
-        //throw new NotImplementedException();
+        throw new NotImplementedException();
     }
 
     // Exercise 7: one line per open course, in list order,
@@ -32,7 +32,7 @@ public static class CourseQueries
             .Select(c => c.Code + ": " + c.SeatsLeft + " seats left")
             .ToList();
         // TODO: Part G, Exercise 7
-        //throw new NotImplementedException();
+        throw new NotImplementedException();
     }
 
     // Part H, demo: the three biggest courses, largest first,
@@ -44,7 +44,7 @@ public static class CourseQueries
             .Select(c => c.Code + " (" + c.Enrolled + ")")
             .ToList();
         // TODO: Part H, demo
-        //throw new NotImplementedException();
+        throw new NotImplementedException();
     }
 
     // Part H, demo: every student in every course, added up.
@@ -52,7 +52,7 @@ public static class CourseQueries
     {
         return courses.Sum(c => c.Enrolled);
         // TODO: Part H, demo
-        //throw new NotImplementedException();
+        throw new NotImplementedException();
     }
 
     // Part H, demo: how many courses have no seats left.
@@ -60,7 +60,7 @@ public static class CourseQueries
     {
         return courses.Count(c => c.SeatsLeft == 0);
         // TODO: Part H, demo
-        //throw new NotImplementedException();
+        throw new NotImplementedException();
     }
 
     // Part H, demo: a dictionary from course code to course, in one line.
@@ -68,7 +68,7 @@ public static class CourseQueries
     {
         return courses.ToDictionary(c => c.Code, c => c);
         // TODO: Part H, demo
-        //throw new NotImplementedException();
+        throw new NotImplementedException();
     }
 
     // Exercise 8: one line per department, most students first,
@@ -80,6 +80,6 @@ public static class CourseQueries
                       .Select(g => g.Key + " | courses: " + g.Count() + " | students: " + g.Sum(c => c.Enrolled))
                       .ToList();
         // TODO: Part H, Exercise 8
-        //throw new NotImplementedException();
+        throw new NotImplementedException();
     }
 }

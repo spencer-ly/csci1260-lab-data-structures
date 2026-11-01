@@ -8,7 +8,6 @@ public static class ArrayTools
 {
     // Linear search: check every slot in use until you find the target.
     // Return the index, or -1 when the target is not there.
-    // Compare with ==, which works for int but not for every type T.
     public static int IndexOf(int[] data, int count, int target)
     {
         for (int i = 0; i < count; i++)
@@ -25,7 +24,6 @@ public static class ArrayTools
 
     // Insert: shift right starting from the END, then drop the value
     // into the gap. Return the new count.
-    // everything shifts one slot to the right
     public static int InsertAt(int[] data, int count, int index, int value)
     {
         for (int i = count; i > index; i--)
@@ -40,7 +38,6 @@ public static class ArrayTools
 
     // Remove: shift left starting at the gap. The last slot is no longer
     // in use, so the count drops by one. Return the new count.
-    // Precondition: 0 <= index < count, so there is something to remove.
     public static int RemoveAt(int[] data, int count, int index)
     {
         for (int i = index; i < count - 1; i++)
