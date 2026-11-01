@@ -22,6 +22,7 @@ public class MyList<T>
     public int Capacity => items.Length;
 
     // Add to the end. Grow first if every slot is taken.
+    // grows list by doubling the size of the array when full.
     public void Add(T item)
     {
         if (count == items.Length)
