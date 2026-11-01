@@ -16,8 +16,8 @@ public static class ArrayTools
             {
                 return i;
             }
-            return -1;
         }
+        return -1;
         // TODO: Part A, demo
         throw new NotImplementedException();
     }
