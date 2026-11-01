@@ -5,23 +5,35 @@ public class CourseCatalog
 {
     // TODO: Part E. Declare one private field: a Dictionary<string, string>
     // that maps a course code to its title.
+    private Dictionary<string, string> catalog = new Dictionary<string, string>();
 
     // TODO: Part E. How many courses are in the catalog.
-    public int Count => throw new NotImplementedException();
+    public int Count => catalog.Count;
 
+    
     // Adds a course. Returns false, and changes nothing, when the code is
     // already there. Hint: one of the three ways to write does exactly this.
     public bool AddCourse(string code, string title)
-    {
+    { 
+        return catalog.TryAdd(code, title);
         // TODO: Part E, demo
-        throw new NotImplementedException();
+        //throw new NotImplementedException();
     }
 
     // Returns the title for a code, or "(no such course)" when the code is
     // missing. Use TryGetValue, so the code is looked up only once.
     public string TitleFor(string code)
     {
+        if (catalog.TryGetValue(code, out string title))
+        {
+            return title;
+        }
+        else
+        {
+            return "(no such course)";
+        }
         // TODO: Part E, demo
-        throw new NotImplementedException();
+        //throw new NotImplementedException();
     }
+
 }
