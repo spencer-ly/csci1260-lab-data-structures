@@ -20,7 +20,7 @@ public class MyStack<T>
     {
         items.Add(item);
         // TODO: Part C, demo
-        throw new NotImplementedException();
+        //throw new NotImplementedException();
     }
 
     // Take the top item off and hand it back.
@@ -30,7 +30,7 @@ public class MyStack<T>
         items.RemoveAt(items.Count - 1);
         return top;
         // TODO: Part C, demo
-        throw new NotImplementedException();
+        //throw new NotImplementedException();
     }
 
     // Look at the top item without removing it. On an empty stack, throw
@@ -43,6 +43,6 @@ public class MyStack<T>
         }
         return items[items.Count - 1];
         // TODO: Part C, demo
-        throw new NotImplementedException();
+        //throw new NotImplementedException();
     }
 }

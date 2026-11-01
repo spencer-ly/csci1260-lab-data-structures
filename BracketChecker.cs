@@ -29,7 +29,7 @@ public static class BracketChecker
         }
         return open.IsEmpty;
         // TODO: Part C, Exercise 3. Use a MyStack<char>.
-        throw new NotImplementedException();
+        //throw new NotImplementedException();
     }
 
     // Given. True when close is the partner of open.

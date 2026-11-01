@@ -28,10 +28,9 @@ public class MyList<T>
         {
             Grow();
         }
-        items[count++] = item;
+        items[count] = item;
         count++;
-        // TODO: Part B, demo
-        throw new NotImplementedException();
+
     }
 
     // The indexer is the code behind list[2]. Both get and set must
@@ -42,15 +41,11 @@ public class MyList<T>
         {
             CheckIndex(index);
             return items[index];
-            // TODO: Part B, demo
-            throw new NotImplementedException();
         }
         set
         {
             CheckIndex(index);
             items[index] = value;
-            // TODO: Part B, demo
-            throw new NotImplementedException();
         }
     }
 
@@ -74,7 +69,7 @@ public class MyList<T>
         items[index] = item;
         count++;
         // TODO: Part B, Exercise 2
-        throw new NotImplementedException();
+        //throw new NotImplementedException();
     }
 
     // Remove the item at index and close the gap.
@@ -86,8 +81,6 @@ public class MyList<T>
             items[i] = items[i + 1];
         }
         count--;
-        // TODO: Part B, demo
-        throw new NotImplementedException();
     }
 
     // Linear search. Return the index, or -1 when the item is not there.
@@ -102,10 +95,8 @@ public class MyList<T>
             }
         }
         return -1;
-        // TODO: Part B, demo
-        throw new NotImplementedException();
-    }
 
+    }
     // Given. Builds a line like "[A, B, C]" from the slots in use.
     public override string ToString()
     {
@@ -123,22 +114,22 @@ public class MyList<T>
 
     private void Grow()
     {
-        T[] bigger = new T[items.Length *2];
+        T[] bigger = new T[items.Length * 2];
         for (int i = 0; i < count; i++)
         {
             bigger[i] = items[i];
         }
         items = bigger;
     }
-
     private void CheckIndex(int index)
     {
         if (index < 0 || index >= count)
         {
-            throw new ArgumentOutOfRangeException(nameof(index));
+            throw new ArgumentOutOfRangeException(
+            nameof(index));
         }
     }
-    
+
 
     // TODO: Part B. Write two private helpers:
     //   Grow()            make a new array twice the size, copy every item
