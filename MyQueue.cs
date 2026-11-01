@@ -16,16 +16,27 @@ public class MyQueue<T>
     // The back of the line is at (head + count) % items.Length.
     public void Enqueue(T item)
     {
+        if (count == items.Length)
+        {
+            Grow();
+        }
+        int tail = (head + count) % items.Length;
+        items[tail] = item;
+        count++;
         // TODO: Part D, demo
-        throw new NotImplementedException();
+        //throw new NotImplementedException();
     }
 
     // Leave from the front of the line. Move head forward one slot,
     // wrapping with %, and hand back the item that was in front.
     public T Dequeue()
     {
+        T front = Peek();
+        head = (head + 1) % items.Length;
+        count--;
+        return front;
         // TODO: Part D, demo
-        throw new NotImplementedException();
+        //throw new NotImplementedException();
     }
 
     // Given. Look at the front item without removing it.
@@ -36,6 +47,17 @@ public class MyQueue<T>
             throw new InvalidOperationException("Queue is empty.");
         }
         return items[head];
+    }
+
+    private void Grow()
+    {
+        T[] bigger = new T[items.Length * 2];
+        for (int i = 0; i < count; i++)
+        {
+            bigger[i] = items[(head + i) % items.Length];
+        }
+        items = bigger;
+        head = 0;
     }
 
     // TODO: Part D. Write one private helper:
